@@ -1,12 +1,12 @@
 import "./App.css";
 import TodoList from "./TodoList";
-//import AddTodoForm from "./AddTodoForm";
+import AddTodoForm from "./AddToDoForm";
 
 function App() {
   return (
     <div>
       <h1>Todo List</h1>
-      {/* <AddTodoForm /> */}
+      <AddTodoForm />
       <TodoList />
     </div>
   );
