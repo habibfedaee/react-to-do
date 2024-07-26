@@ -1,29 +1,25 @@
+import PropTypes from "prop-types";
 import TodoListItem from "./ToDoListItem";
 
-const todoList = [
-  {
-    id: 1,
-    title: "todo 1",
-  },
-  {
-    id: 2,
-    title: "todo 2",
-  },
-  {
-    id: 3,
-    title: "todo 3",
-  },
-];
-function TodoList() {
+function TodoList({ todoList }) {
   return (
     <div>
       <ul>
-        {todoList.map(function (todo) {
-          return <TodoListItem key={todo.id} title={todo.title} />;
-        })}
+        {todoList.map((todo) => (
+          <TodoListItem key={todo.id} title={todo.title} />
+        ))}
       </ul>
     </div>
   );
 }
+
+TodoList.propTypes = {
+  todoList: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
 
 export default TodoList;
