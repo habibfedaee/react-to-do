@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function ToDoListItem(props) {
-  return <li>{props.title}</li>;
+export default function ToDoListItem({ title }) {
+  return <li>{title}</li>;
 }
