@@ -4,23 +4,24 @@ import PropTypes from "prop-types";
 export default function InputWithLabel({ label, value, onChange }) {
   return (
     <div>
-      <label htmlFor="todoTitle">{label}</label>
-      <input
-        name="title"
-        id="todoTitle"
-        type="text"
-        value={value}
-        onChange={onChange}
-      />
+      <Label htmlFor="input">{label}</Label>
+      <Input value={value} onChange={onChange} />
     </div>
   );
 }
 
-// props validation:
+const Label = ({ htmlFor, children }) => {
+  return <label htmlFor={htmlFor}>{children}</label>;
+};
 
+const Input = ({ value, onChange }) => {
+  return <input id="input" type="text" value={value} onChange={onChange} />;
+};
+
+// props validation:
 InputWithLabel.propTypes = {
-  children: PropTypes.node.isRequired,
+  value: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   todoTitle: PropTypes.string.isRequired,
-  handleTitleChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
